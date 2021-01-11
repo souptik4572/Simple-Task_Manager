@@ -1,0 +1,8 @@
+.NewTaskForm {
+    width: auto;
+    margin: 1.5rem;
+}
+
+.NewTaskForm button {
+    margin-left: 1.5rem;
+}
