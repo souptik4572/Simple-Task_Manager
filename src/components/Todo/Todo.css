@@ -1,0 +1,25 @@
+.Todo {
+    background-color: white;
+    border-radius: 5px;
+    margin: 0.6rem;
+    padding: 8px 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.Todo:hover {
+    cursor: pointer;
+}
+
+.Todo-text {
+    font-size: 14px;
+    margin: 0px;
+}
+
+.Todo button {
+    outline: none;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}

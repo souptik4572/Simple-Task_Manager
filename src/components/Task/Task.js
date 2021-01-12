@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../styles/Task.css';
+import './Task.css';
 import { v4 as uuid } from 'uuid';
 
-import Todo from './Todo';
+import Todo from '../Todo/Todo';
 
 class Task extends Component {
 	constructor(props) {
@@ -56,7 +56,7 @@ class Task extends Component {
 	render() {
 		const { id, text, todos, deleteTodoFromTask, allocateDraggedTodo } = this.props;
 		const editForm = (
-			<form onSubmit={this.handleEditSubmit}>
+			<form onSubmit={this.handleEditSubmit} className='Task-title-text'>
 				<input type='text' value={this.state.taskText} onChange={this.handleEditChange} />
 				<button>Submit</button>
 			</form>
@@ -69,18 +69,18 @@ class Task extends Component {
 				{this.state.isGettingEdited ? ( // based on this value we are either going to show the editForm or the task title
 					editForm
 				) : (
-					<h2 className='Task-column-title'>
-						{text}
-						<span>
-							<button onClick={this.handleTaskDelete}>Delete</button>
-							<button onClick={this.toggleEditForm}>Edit</button>
+					<div className='Task-title'>
+						<p className='Task-title-text'>{text}</p>
+						<span className='Task-options'>
+							<button onClick={this.handleTaskDelete}><i className="fas fa-trash"></i></button>
+							<button onClick={this.toggleEditForm}><i className="fas fa-pencil-alt"></i></button>
 						</span>
-					</h2>
+					</div>
 				)}
 				<div className='Task-container'>
 					{allTodos}
 				</div>
-				<form className='Task-add-container' onSubmit={this.handleSubmit}>
+				<form className='Task-add' onSubmit={this.handleSubmit}>
 					<textarea
 						type='text'
 						placeholder='Type todo here ...'

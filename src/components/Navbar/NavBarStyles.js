@@ -1,6 +1,6 @@
 const styles = theme => ({
   root: {
-    width: "130%",
+    width: "100%",
     marginBottom: 0
   },
   grow: {

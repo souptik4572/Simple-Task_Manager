@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/Todo.css';
+import './Todo.css';
 
 class Todo extends Component {
     constructor(props) {
@@ -20,7 +20,8 @@ class Todo extends Component {
         const { text } = this.props;
 		return (
 			<div className='Todo' onDrag={this.onDrag} draggable>
-				<p>{text}<span><button onClick={this.handleDelete}>Remove</button></span></p>
+				<p className='Todo-text'>{text}</p>
+				<button onClick={this.handleDelete}><i className="fas fa-times"></i></button>
 			</div>
 		);
 	}

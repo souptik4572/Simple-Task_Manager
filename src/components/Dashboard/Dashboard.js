@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Navbar from './Navbar';
-import TaskList from './TaskList';
+import Navbar from '../Navbar/Navbar';
+import TaskList from '../TaskList/TaskList';
 
 class Dashboard extends Component {
 	constructor(props) {
@@ -71,6 +71,9 @@ class Dashboard extends Component {
 	}
 	onDrop = (event, taskId) => { // When we are dragging and dropping our required todo from one task to another task this is called. It is taking two parameters which are the event itself and the id of the task where we are dropping this todo
 		event.preventDefault();
+		if(taskId === this.state.parentTask) {
+			return;
+		}
 		let newTasks = this.state.tasks.map(aTask => { // first we are adding our dragged todo to our new Task
 			if(aTask.id === taskId) {
 				return { ...aTask, todos: [ ...aTask.todos, this.state.draggedTodo ] };
@@ -97,7 +100,7 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<div className='Dashboard'>
-				<Navbar />
+				<Navbar addNewTask={this.addNewTask} />
 				<TaskList
 					addNewTask={this.addNewTask}
 					tasks={this.state.tasks}
