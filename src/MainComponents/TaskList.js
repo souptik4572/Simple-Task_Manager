@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './TaskList.css';
+import '../styles/TaskList.css';
 import Task from './Task';
 import NewTaskForm from './NewTaskForm';
 

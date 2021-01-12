@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Task.css';
+import '../styles/Task.css';
 import { v4 as uuid } from 'uuid';
 
 import Todo from './Todo';
@@ -54,7 +54,7 @@ class Task extends Component {
 		this.props.onDrop(event, this.props.id);
 	}
 	render() {
-		const { id, text, todos, deleteTodoFromTask, draggedTodo, allocateDraggedTodo } = this.props;
+		const { id, text, todos, deleteTodoFromTask, allocateDraggedTodo } = this.props;
 		const editForm = (
 			<form onSubmit={this.handleEditSubmit}>
 				<input type='text' value={this.state.taskText} onChange={this.handleEditChange} />

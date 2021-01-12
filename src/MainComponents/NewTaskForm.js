@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-import './NewTaskForm.css';
+import '../styles/NewTaskForm.css';
 
 class NewTaskForm extends Component {
 	constructor(props) {
