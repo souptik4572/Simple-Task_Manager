@@ -14,11 +14,36 @@
 	font-weight: 700;
 }
 
+.Task-title-form {
+	display: flex;
+	justify-content: space-between;
+	margin: 1em 0.8rem;
+}
+
+.Task-title-form button {
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
+.Task-title-form input {
+	font-size: 16px;
+	font-weight: 700;
+	outline: none;
+	font-family: 'Roboto', sans-serif;
+	resize: none;
+}
+
 .Task-add {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
-	margin: 0px 0.5rem 0.5rem;
+	margin: 0px 0.6rem 0.5rem;
+}
+
+.Task-add textarea {
+	font-family: 'Roboto', sans-serif;
+	/* resize: none; */
 }
 
 .Task-add button {
@@ -31,8 +56,8 @@
 .Task-options {
 	display: flex;
 	justify-content: center;
-    flex-direction: row;
-    padding: 10px 0px;
+	flex-direction: row;
+	padding: 10px 0px;
 }
 
 .Task-options button {
