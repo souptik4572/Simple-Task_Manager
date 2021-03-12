@@ -3,7 +3,7 @@
 	border-radius: 10px;
 	width: 272px;
 	align-self: flex-start;
-	margin: 2rem 0px;
+	margin: 2rem 2.5%;
 }
 
 .Task-title {
@@ -15,7 +15,17 @@
 }
 
 .Task-add {
-	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	margin: 0px 0.5rem 0.5rem;
+}
+
+.Task-add button {
+	border: none;
+	outline: none;
+	font-size: 20px;
+	cursor: pointer;
 }
 
 .Task-options {

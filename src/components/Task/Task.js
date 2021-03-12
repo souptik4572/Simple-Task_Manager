@@ -57,7 +57,7 @@ class Task extends Component {
 		const { id, text, todos, deleteTodoFromTask, allocateDraggedTodo } = this.props;
 		const editForm = (
 			<form onSubmit={this.handleEditSubmit} className='Task-title-text'>
-				<input type='text' value={this.state.taskText} onChange={this.handleEditChange} />
+				<input type='text' value={this.state.taskText} onChange={this.handleEditChange} autoFocus />
 				<button>Submit</button>
 			</form>
 		);
@@ -84,10 +84,12 @@ class Task extends Component {
 					<textarea
 						type='text'
 						placeholder='Type todo here ...'
+						cols={25}
+						rows={2}
 						value={this.state.newTodo}
 						onChange={this.handleChange}
 					/>
-					<button className='add-card ui-button ui-corner-all'>Add Card</button>
+					<button className='add-card ui-button ui-corner-all'><i className="fas fa-plus-circle"></i></button>
 				</form>
 			</div>
 		);

@@ -27,16 +27,19 @@ class Dashboard extends Component {
 	componentDidUpdate() {
 		window.localStorage.setItem('tasks', JSON.stringify(this.state.tasks)); // using local storage to keep track of all the tasks
 	}
-	addNewTask(newTask) { // for adding the new Task
+	addNewTask(newTask) {
+		// for adding the new Task
 		this.setState({ tasks: [ ...this.state.tasks, newTask ] });
 	}
-	deleteTask(uniqueId) { // for deleting existing task
+	deleteTask(uniqueId) {
+		// for deleting existing task
 		const newTasks = this.state.tasks.filter((aTask) => {
 			return aTask.id !== uniqueId;
 		});
 		this.setState({ tasks: newTasks });
 	}
-	editTask(uniqueId, editedTask) { // to edit the task title
+	editTask(uniqueId, editedTask) {
+		// to edit the task title
 		const newTasks = this.state.tasks.map((aTask) => {
 			if (aTask.id === uniqueId) {
 				return { ...aTask, text: editedTask };
@@ -45,19 +48,24 @@ class Dashboard extends Component {
 		});
 		this.setState({ tasks: newTasks });
 	}
-	addTodoToTask(uniqueId, newTodo) { // adding a certain todo to a a certain task
+	addTodoToTask(uniqueId, newTodo) {
+		// adding a certain todo to a a certain task
 		const newTaskList = this.state.tasks.map((aTask) => {
-			if (aTask.id === uniqueId) { // if the taskid is same only then the todo will be added
+			if (aTask.id === uniqueId) {
+				// if the taskid is same only then the todo will be added
 				return { ...aTask, todos: [ ...aTask.todos, newTodo ] };
 			}
 			return aTask;
 		});
 		this.setState({ tasks: newTaskList });
 	}
-	deleteTodoFromTask(uniqueIdOfTask, uniqueIdOfTodo) { // deleting a certain todo from a certain task
+	deleteTodoFromTask(uniqueIdOfTask, uniqueIdOfTodo) {
+		// deleting a certain todo from a certain task
 		const newTaskList = this.state.tasks.map((aTask) => {
-			if (aTask.id === uniqueIdOfTask) { // if the task id is same, only then from that task the todo will be deleted
-				const newTodoList = aTask.todos.filter((aTodo) => { // filtering out the deleted task and assinging back the new todo list
+			if (aTask.id === uniqueIdOfTask) {
+				// if the task id is same, only then from that task the todo will be deleted
+				const newTodoList = aTask.todos.filter((aTodo) => {
+					// filtering out the deleted task and assinging back the new todo list
 					return aTodo.id !== uniqueIdOfTodo;
 				});
 				return { ...aTask, todos: newTodoList };
@@ -66,28 +74,28 @@ class Dashboard extends Component {
 		});
 		this.setState({ tasks: newTaskList });
 	}
-	allocateDraggedTodo(todo, parentTaskId) { // to keep track of the dragged todo
+	allocateDraggedTodo(todo, parentTaskId) {
+		// to keep track of the dragged todo
 		this.setState({ draggedTodo: todo, parentTask: parentTaskId });
 	}
-	onDrop = (event, taskId) => { // When we are dragging and dropping our required todo from one task to another task this is called. It is taking two parameters which are the event itself and the id of the task where we are dropping this todo
+	onDrop = (event, taskId) => {
+		// When we are dragging and dropping our required todo from one task to another task this is called. It is taking two parameters which are the event itself and the id of the task where we are dropping this todo
 		event.preventDefault();
-		if(taskId === this.state.parentTask) {
+		if (taskId === this.state.parentTask) {
 			return;
 		}
-		let newTasks = this.state.tasks.map(aTask => { // first we are adding our dragged todo to our new Task
-			if(aTask.id === taskId) {
+		let newTasks = this.state.tasks.map((aTask) => {
+			// first we are adding our dragged todo to our new Task
+			if (aTask.id === taskId) {
 				return { ...aTask, todos: [ ...aTask.todos, this.state.draggedTodo ] };
 			}
-			return aTask;
-		});
-		newTasks = newTasks.map(aTask => { // Next, we are deleting the dragged todo from it's actual Task
-			if(aTask.id === this.state.parentTask) {
+			else if (aTask.id === this.state.parentTask) {
 				return {
 					...aTask,
-					todos: aTask.todos.filter(aTodo => {
-						return aTodo.id !== this.state.draggedTodo.id
+					todos: aTask.todos.filter((aTodo) => {
+						return aTodo.id !== this.state.draggedTodo.id;
 					})
-				}
+				};
 			}
 			return aTask;
 		});
