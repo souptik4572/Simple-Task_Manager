@@ -5,7 +5,6 @@ import Task from '../Task/Task';
 class TaskList extends Component {
 	render() {
 		const {
-			addNewTask,
 			deleteTask,
 			editTask,
 			addTodoToTask,
