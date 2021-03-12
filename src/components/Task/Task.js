@@ -107,7 +107,7 @@ class Task extends Component {
 						type='text'
 						placeholder='Type todo here ...'
 						cols={25}
-						rows={2}
+						rows={3}
 						value={this.state.newTodo}
 						onChange={this.handleChange}
 					/>

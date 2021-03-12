@@ -17,7 +17,7 @@
 .Task-title-form {
 	display: flex;
 	justify-content: space-between;
-	margin: 1em 0.8rem;
+	margin: 0.5em 0.8rem;
 }
 
 .Task-title-form button {
@@ -27,6 +27,11 @@
 }
 
 .Task-title-form input {
+	outline: none;
+	width: 200px;
+	border: none;
+	padding: 0.5em 1em;
+	border-radius: 6px;
 	font-size: 16px;
 	font-weight: 700;
 	outline: none;
@@ -43,6 +48,10 @@
 
 .Task-add textarea {
 	font-family: 'Roboto', sans-serif;
+	outline: none;
+	border: none;
+	border-radius: 6px;
+	padding: 5px;
 	/* resize: none; */
 }
 
