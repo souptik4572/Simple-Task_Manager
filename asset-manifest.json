@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/souptik4572/Simple-Task_Manager/static/css/main.ca776e38.chunk.css",
+    "main.js": "/souptik4572/Simple-Task_Manager/static/js/main.4f83fd1b.chunk.js",
+    "main.js.map": "/souptik4572/Simple-Task_Manager/static/js/main.4f83fd1b.chunk.js.map",
+    "runtime-main.js": "/souptik4572/Simple-Task_Manager/static/js/runtime-main.07ef7c39.js",
+    "runtime-main.js.map": "/souptik4572/Simple-Task_Manager/static/js/runtime-main.07ef7c39.js.map",
+    "static/js/2.0c66e3c3.chunk.js": "/souptik4572/Simple-Task_Manager/static/js/2.0c66e3c3.chunk.js",
+    "static/js/2.0c66e3c3.chunk.js.map": "/souptik4572/Simple-Task_Manager/static/js/2.0c66e3c3.chunk.js.map",
+    "static/js/3.fdd4b9bd.chunk.js": "/souptik4572/Simple-Task_Manager/static/js/3.fdd4b9bd.chunk.js",
+    "static/js/3.fdd4b9bd.chunk.js.map": "/souptik4572/Simple-Task_Manager/static/js/3.fdd4b9bd.chunk.js.map",
+    "index.html": "/souptik4572/Simple-Task_Manager/index.html",
+    "static/css/main.ca776e38.chunk.css.map": "/souptik4572/Simple-Task_Manager/static/css/main.ca776e38.chunk.css.map",
+    "static/js/2.0c66e3c3.chunk.js.LICENSE.txt": "/souptik4572/Simple-Task_Manager/static/js/2.0c66e3c3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.07ef7c39.js",
+    "static/js/2.0c66e3c3.chunk.js",
+    "static/css/main.ca776e38.chunk.css",
+    "static/js/main.4f83fd1b.chunk.js"
+  ]
+}
