@@ -48,6 +48,8 @@
 
 .Task-add textarea {
 	font-family: 'Roboto', sans-serif;
+	width:100%;
+	margin-right: 10px;
 	outline: none;
 	border: none;
 	border-radius: 6px;

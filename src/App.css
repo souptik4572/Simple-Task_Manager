@@ -2,7 +2,11 @@
 
 .App {
   /* text-align: center; */
+  width: 100vw;
+  height: 100vh;
   font-family: 'Roboto', sans-serif;
+  background-size: cover;
+  background-position: center;
 }
 
 .App-logo {

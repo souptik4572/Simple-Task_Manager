@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Navbar from '../Navbar/Navbar';
 import TaskList from '../TaskList/TaskList';
+import EmptyList from '../EmptyList/EmptyList';
 
 class Dashboard extends Component {
 	constructor(props) {
@@ -9,7 +10,7 @@ class Dashboard extends Component {
 		this.state = {
 			tasks: [], // a list of all the different tasks
 			draggedTodo: {}, // when we are dragging a todo, it will keep a track of the todo
-			parentTask: '' // the Task in which the draggedTodo was assigned
+			parentTask: '', // the Task in which the draggedTodo was assigned
 		};
 		this.addNewTask = this.addNewTask.bind(this);
 		this.deleteTask = this.deleteTask.bind(this);
@@ -29,7 +30,7 @@ class Dashboard extends Component {
 	}
 	addNewTask(newTask) {
 		// for adding the new Task
-		this.setState({ tasks: [ ...this.state.tasks, newTask ] });
+		this.setState({ tasks: [...this.state.tasks, newTask] });
 	}
 	deleteTask(uniqueId) {
 		// for deleting existing task
@@ -53,7 +54,7 @@ class Dashboard extends Component {
 		const newTaskList = this.state.tasks.map((aTask) => {
 			if (aTask.id === uniqueId) {
 				// if the taskid is same only then the todo will be added
-				return { ...aTask, todos: [ ...aTask.todos, newTodo ] };
+				return { ...aTask, todos: [...aTask.todos, newTodo] };
 			}
 			return aTask;
 		});
@@ -87,14 +88,13 @@ class Dashboard extends Component {
 		let newTasks = this.state.tasks.map((aTask) => {
 			// first we are adding our dragged todo to our new Task
 			if (aTask.id === taskId) {
-				return { ...aTask, todos: [ ...aTask.todos, this.state.draggedTodo ] };
-			}
-			else if (aTask.id === this.state.parentTask) {
+				return { ...aTask, todos: [...aTask.todos, this.state.draggedTodo] };
+			} else if (aTask.id === this.state.parentTask) {
 				return {
 					...aTask,
 					todos: aTask.todos.filter((aTodo) => {
 						return aTodo.id !== this.state.draggedTodo.id;
-					})
+					}),
 				};
 			}
 			return aTask;
@@ -102,24 +102,28 @@ class Dashboard extends Component {
 		this.setState({
 			tasks: newTasks,
 			draggedTodo: {},
-			parentTask: ''
+			parentTask: '',
 		});
 	};
 	render() {
 		return (
 			<div className='Dashboard'>
 				<Navbar addNewTask={this.addNewTask} />
-				<TaskList
-					addNewTask={this.addNewTask}
-					tasks={this.state.tasks}
-					deleteTask={this.deleteTask}
-					editTask={this.editTask}
-					addTodoToTask={this.addTodoToTask}
-					deleteTodoFromTask={this.deleteTodoFromTask}
-					draggedTodo={this.state.draggedTodo}
-					allocateDraggedTodo={this.allocateDraggedTodo}
-					onDrop={this.onDrop}
-				/>
+				{this.state.tasks.length === 0 ? (
+					<EmptyList />
+				) : (
+					<TaskList
+						addNewTask={this.addNewTask}
+						tasks={this.state.tasks}
+						deleteTask={this.deleteTask}
+						editTask={this.editTask}
+						addTodoToTask={this.addTodoToTask}
+						deleteTodoFromTask={this.deleteTodoFromTask}
+						draggedTodo={this.state.draggedTodo}
+						allocateDraggedTodo={this.allocateDraggedTodo}
+						onDrop={this.onDrop}
+					/>
+				)}
 			</div>
 		);
 	}
